@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# CMake & Visual Studio
+*.cmake
+CMakeCache.txt
+**/CMakeFiles
+**/.vs
+**/_deps
+**/Debug
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
