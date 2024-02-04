@@ -7,7 +7,7 @@ elseif(MSVC)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-file(GLOB sources FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+file(GLOB sources FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
 add_definitions(
     "/utf-8"
