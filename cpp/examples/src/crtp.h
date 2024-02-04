@@ -16,6 +16,7 @@ private:
 	T value_;
 };
 
+// ストリーム出力機能を付加するMixinクラス
 template <typename Derived>
 struct Printable {
 	friend std::ostream& operator<<(std::ostream& os, const Derived& derived) {
@@ -24,6 +25,7 @@ struct Printable {
 	}
 };
 
+// 加算機能を付加するMixinクラス
 template <typename Derived>
 struct Addable {
 	friend Derived operator+(const Derived& lhs, const Derived& rhs) {
@@ -38,8 +40,8 @@ struct Addable {
 // 強固な型付けクラス
 using PlayerId = StrongType<uint64_t, struct PlayerIdTag>;
 
-
 // ストリーム出力可能になった
 using PacketId = StrongType<uint16_t, struct PacketIdTag, Printable>;
 
+// ストリーム出力に加えて加算も可能
 using Meter = StrongType<uint32_t, struct MeterTag, Addable, Printable>;

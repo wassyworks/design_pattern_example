@@ -1,14 +1,14 @@
 ﻿#include <iostream>
 
 #include "crtp.h"
-// main function
+
 int main()
 {
 	// === CRTP ===
 	const PlayerId player_1_id = PlayerId(1);
 	const PlayerId player_2_id = PlayerId(2);
 
-	// 計算はコンパイルエラーで未然に防止できる
+	// 計算機能を付加していないのならコンパイルエラーで未然に防止できる
 	// auto invalid_addition = player_1_id + player_2_id;
 
 	const PacketId packet_id = PacketId(100);
