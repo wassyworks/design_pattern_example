@@ -4,6 +4,8 @@
 
 #include "strategy/player_update_strategy.h"
 #include "strategy/enemy_update_strategy.h"
+#include "strategy_object_oriented/player_update_strategy.h"
+#include "strategy_object_oriented/enemy_update_strategy.h"
 
 int main()
 {
@@ -29,6 +31,16 @@ int main()
 	entities.emplace_back(std::make_unique<Enemy>(EnemyUpdateStrategy()));
 	entities.emplace_back(std::make_unique<Enemy>(EnemyUpdateStrategy()));
 	for (auto&& entity : entities)
+	{
+		entity->update();
+	}
+
+	std::vector<std::unique_ptr<strategy_object_oriented::Entity>> soo_entities;
+	soo_entities.emplace_back(std::make_unique<strategy_object_oriented::Player>(std::make_unique<strategy_object_oriented::PlayerUpdateStrategy>()));
+	soo_entities.emplace_back(std::make_unique<strategy_object_oriented::Enemy>(std::make_unique<strategy_object_oriented::EnemyUpdateStrategy>()));
+	soo_entities.emplace_back(std::make_unique<strategy_object_oriented::Enemy>(std::make_unique<strategy_object_oriented::EnemyUpdateStrategy>()));
+
+	for (auto&& entity : soo_entities)
 	{
 		entity->update();
 	}
