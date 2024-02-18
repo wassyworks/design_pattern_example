@@ -6,6 +6,7 @@
 #include "strategy/enemy_update_strategy.h"
 #include "strategy_object_oriented/player_update_strategy.h"
 #include "strategy_object_oriented/enemy_update_strategy.h"
+#include "adapter/xml_to_json_logger_adapter.h"
 
 int main()
 {
@@ -44,6 +45,13 @@ int main()
 	{
 		entity->update();
 	}
+
+	// === Adapter ===
+	adapter::Logger logger;
+	logger.Logging("foo");
+
+	adapter::XmlToJsonLoggerAdapter adapter;
+	adapter.Logging("foo");
 
 	return 0;
 }

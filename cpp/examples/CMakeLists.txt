@@ -10,6 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 file(GLOB SRC FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 file(GLOB SRC_STRATEGY FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy/*.cpp)
 file(GLOB SRC_STRATEGY_OO FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy_object_oriented/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy_object_oriented/*.cpp)
+file(GLOB SRC_ADAPTER FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/adapter/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/adapter/*.cpp)
 
 add_definitions(
     "/utf-8"
@@ -24,6 +25,9 @@ source_group(
 source_group(
     "StrategyObjectOriented" FILES ${SRC_STRATEGY_OO}
 )
- add_executable(example ${SRC} ${SRC_STRATEGY} ${SRC_STRATEGY_OO})
+source_group(
+    "Adapter" FILES ${SRC_ADAPTER}
+)
+ add_executable(example ${SRC} ${SRC_STRATEGY} ${SRC_STRATEGY_OO} ${SRC_ADAPTER})
 # add_executable(executor $<TARGET_OBJECTS:lib>)
 endif()
