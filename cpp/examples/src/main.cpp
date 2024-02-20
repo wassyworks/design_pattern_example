@@ -7,6 +7,7 @@
 #include "strategy_object_oriented/player_update_strategy.h"
 #include "strategy_object_oriented/enemy_update_strategy.h"
 #include "adapter/xml_to_json_logger_adapter.h"
+#include "observer/monster_observer.h"
 
 int main()
 {
@@ -52,6 +53,19 @@ int main()
 
 	adapter::XmlToJsonLoggerAdapter adapter;
 	adapter.Logging("foo");
+
+	// === Observer ===
+	observer::Monster monster(100, 0);
+	observer::MonsterHpChangeObserver hp_change_observer;
+	observer::MonsterTargetChangeObserver target_change_observer;
+	monster.Attach(&hp_change_observer);
+	monster.Attach(&target_change_observer);
+	monster.SetHp(200);
+	monster.SetTargetId(1);
+	monster.Detach(&hp_change_observer);
+	monster.Detach(&target_change_observer);
+	monster.SetHp(300);
+	monster.SetTargetId(2);
 
 	return 0;
 }
