@@ -11,6 +11,7 @@ file(GLOB SRC FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h ${CMAKE_CURRENT_SOURCE_D
 file(GLOB SRC_STRATEGY FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy/*.cpp)
 file(GLOB SRC_STRATEGY_OO FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy_object_oriented/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/strategy_object_oriented/*.cpp)
 file(GLOB SRC_ADAPTER FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/adapter/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/adapter/*.cpp)
+file(GLOB SRC_OBSERVER FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/observer/*.h ${CMAKE_CURRENT_SOURCE_DIR}/src/observer/*.cpp)
 
 add_definitions(
     "/utf-8"
@@ -28,6 +29,10 @@ source_group(
 source_group(
     "Adapter" FILES ${SRC_ADAPTER}
 )
- add_executable(example ${SRC} ${SRC_STRATEGY} ${SRC_STRATEGY_OO} ${SRC_ADAPTER})
+
+source_group(
+    "Observer" FILES ${SRC_OBSERVER}
+)
+ add_executable(example ${SRC} ${SRC_STRATEGY} ${SRC_STRATEGY_OO} ${SRC_ADAPTER} ${SRC_OBSERVER})
 # add_executable(executor $<TARGET_OBJECTS:lib>)
 endif()
